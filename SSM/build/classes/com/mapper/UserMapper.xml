@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserMapper">
+ 
+    <select id="findAgeById" parameterType="int" resultType="int">
+        select age from admin WHERE id=#{id} 
+    </select>
+    <select id = "findNameById" parameterType="int" resultType="String">
+    	select username from admin where id=#{id}
+    </select>
+     <select id = "addUser" parameterType="User" >
+    	insert into admin(id,username,password,sex,age) value(null,#{username},#{password},#{sex},#{age})
+    </select>
+     <select id = "findUser" resultType="User">
+    	select * from admin
+    </select>
+     <select id = "deleteUser" parameterType="int">
+    	delete from admin where id=#{id}
+   </select>
+ 
+</mapper>
